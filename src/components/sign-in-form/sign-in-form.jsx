@@ -1,11 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState,  } from 'react';
 
 import FormInput from '../form-input/form-input';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button';
 
-import { UserContext } from '../../contexts/user.context';
-
-import { signInAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 
@@ -19,8 +17,6 @@ const SignInForm = () => {
     const [ formFields, setFormFields ] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext);
-
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -33,23 +29,22 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const { user } = await signInAuthUserWithEmailAndPassword(
+            await signInAuthUserWithEmailAndPassword(
                 email, 
                 password);
-            setCurrentUser(user);
 
             resetFormFields();
         } catch(error) {
-            switch(error.code) {
+            /* switch(error.code) {
                 case 'auth/wrong-password':
                     alert('incorrect password for email');
                     break;
                 case 'auth/user-not-found':
                     alert('no user associated with this email');
                     break;
-                default:
-                    console.log(error)
-            }
+                default: */
+                console.log('user sign in failed', error);
+            /* } */
         }
     }
 
