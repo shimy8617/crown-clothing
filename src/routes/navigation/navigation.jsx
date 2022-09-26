@@ -11,7 +11,11 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
-import { NavigationContainer, NavLinksContainer, NavLink, LogoContainer } from './navigation.styles.jsx';
+import { 
+  NavigationContainer, 
+  NavLinksContainer, 
+  NavLink, 
+  LogoContainer } from './navigation.styles.jsx';
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
