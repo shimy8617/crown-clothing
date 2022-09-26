@@ -38,9 +38,6 @@ export const UserProvider = ({ children }) => {
         dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
     }
 
-    const value = {currentUser, setCurrentUser};
-   
-
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
             if(user){
@@ -51,6 +48,11 @@ export const UserProvider = ({ children }) => {
         return unsubscribe
 
     },[]);
+
+    const value = {
+        currentUser, 
+        setCurrentUser
+    };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
