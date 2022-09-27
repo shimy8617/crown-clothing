@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import CartIcon from '../../components/cart-icon/cart-icon';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown';
 
-import { CartContext } from '../../contexts/cart.context';
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { CartContext } from '../../contexts/cart.context';
 
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
@@ -31,15 +31,13 @@ const Navigation = () => {
                 <NavLink to='/shop' >
                 SHOP
                 </NavLink>
-                {
-                  currentUser ? (
+                { currentUser ? (
                     <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>
                     ) : (
                       <NavLink to='/auth' >
                       SIGN IN
                       </NavLink>
-                    )
-                }
+                    )}
                 <CartIcon />
             </NavLinksContainer>
             {isCartOpen && <CartDropdown />}
