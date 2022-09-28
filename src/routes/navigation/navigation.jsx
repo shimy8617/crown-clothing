@@ -15,7 +15,7 @@ import {
   NavigationContainer, 
   NavLinksContainer, 
   NavLink, 
-  LogoContainer } from './navigation.styles.jsx';
+  LogoContainer } from './navigation.styles';
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);

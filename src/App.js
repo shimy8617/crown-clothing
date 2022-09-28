@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Routes, Route } from 'react-router-dom';
 
 import { onAuthStateChangedListener,
-createUserDocumentFromAuth, signOutUser 
+createUserDocumentFromAuth 
 } from "./utils/firebase/firebase.utils";
 
 import Home from './routes/home/home';
@@ -18,7 +18,6 @@ import { setCurrentUser } from './store/user/user.action';
 const App = () => {
   const dispatch = useDispatch();
 
-  signOutUser();
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
         if(user){
