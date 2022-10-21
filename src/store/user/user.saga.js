@@ -2,9 +2,9 @@ import { takeLatest, put, all, call } from 'redux-saga/effects';
 
 import { USER_ACTION_TYPES } from './user.types';
 
-import { signInSuccess, signInFailed, signUpSuccess, signUpFailed, signOutSuccess, signOutFailed, signOutSuccess, signOutFailed } from './user.action';
+import { signInSuccess, signInFailed, signUpSuccess, signUpFailed, signOutSuccess, signOutFailed } from './user.action';
 
-import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword,createAuthUserWithEmailAndPassword, signOutUser, signOutUser } from '../../utils/firebase/firebase.utils';
+import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword,createAuthUserWithEmailAndPassword, signOutUser } from '../../utils/firebase/firebase.utils';
 
 export function* getSnapshotFromUserAuth( userAuth, additionalDetails ) {
     try{
